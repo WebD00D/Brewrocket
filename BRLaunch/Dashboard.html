@@ -1,0 +1,335 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Brewrocket | Launch your inner brewer</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Perfect Point Marketing">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- Bootstrap -->
+    <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- WOW JS Animation -->
+    <link rel="stylesheet" href="includes/wow-js/animations.css" />
+    <!-- Litebox  -->
+    <link rel="stylesheet" href="includes/litebox/litebox.css" />
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="includes/owl-carousel/owl.carousel.css" />
+    <!-- custom css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="css/media.css" rel="stylesheet" type="text/css" media="screen">
+    <!-- font awesome for icons -->
+    <link href="includes/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+    <link rel="icon" href="/favicon.ico">
+
+    <script src="//use.typekit.net/uov8ghr.js"></script>
+    <script>try { Typekit.load(); } catch (e) { }</script>
+    <style type="text/css">
+        .mya:hover {
+            color: #EEEEEE;
+        }
+    </style>
+
+
+</head>
+
+<body id="body">
+
+
+
+
+    <nav id="navigation" style="margin-bottom:0px">
+        <div class="navbar navbar-default navbar-static-top" role="navigation" style="background-color:#6799ff;margin-bottom:0px;border:none">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a style="margin-bottom:25px;padding-top:12px;" class="navbar-brand" href="index.html"><img src="img/FeatureIcons/BRlogowork.png" class="img-responsive" /></a>
+
+                </div>
+                <div class="navbar-collapse collapse" style="padding-top:10px">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="mya tooltip-test" data-original-title="Continue along in your homebrew course!" href="Dashboard.html" data-placement="bottom" style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px;color:white"><i class="fa fa-flask"></i> Brew Lab</a></li>
+                        <li><a href="BrewersMarket.html" class="tooltip-test" data-original-title="Find deals and discounts on homebrew supplies!" data-placement="bottom" style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px;color:white"><i class="fa fa-shopping-cart"></i> Brewer's Market </a></li>
+                        <!--<li><a href="#" class="tooltip-test" data-original-title="Job Boards" data-placement="bottom" style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px"><i class="fa fa-briefcase fa-2x"></i> </a></li>-->
+                        <li><a href="https://brewrocket-members.slack.com/" target="_blank" class="tooltip-test" data-original-title="Join fellow students in our Slack Community" data-placement="bottom" style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px;color:white"><i class="fa fa-slack"></i> Slack</a></li>
+                        <li><a href="OfficeHours.html" class="tooltip-test" data-original-title="Drop in for a live group chat with a professional brewer!" data-placement="bottom" style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px;color:white"><i class="fa fa-users "></i> Office Hours</a></li>
+
+
+                        <li><a href="Account.html" class="tooltip-test" data-placement="bottom" data-original-title="View and edit your account details." style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px;color:white"><i class="fa fa-user "></i> Account</a></li>
+                        <li><a href="#" id="lnkSignOut" class="tooltip-test" data-original-title="Sign Out" data-placement="bottom" style="font-size:medium;text-transform:none;padding-left:10px;padding-right:10px;color:white"><i class="fa fa-sign-out "></i> Sign Out</a></li>
+
+                    </ul>
+
+                </div><!--/.nav-collapse -->
+            </div><!--/.container -->
+        </div><!--navbar-default-->
+    </nav><!--navigation section end here-->
+
+
+    <div class="col-lg-12">
+        <div id="DashboardPanel" class="col-lg-6 col-lg-offset-3" style="border:2px solid #EEEEEE;border-radius:7px;margin-top:5%">
+            <h1 style="color:#302e2e;font-family:'fira-sans-2';margin-bottom:20px;margin-top:10px;font-weight:700;font-stretch:wider">Welcome back, <span id="username"></span>! <br /></h1>
+            <h3 style="color:black;font-family:'Yu Gothic',sans-serif">Release Notes & Updates</h3>
+            <b style="color:#0094ff">v 0.1  | June 30th 2015</b>
+            <br />
+            <ul style="color:#2a2727">
+                <li>UI update for dashboard</li>
+                <li>Added content to Lesson 3</li>
+            </ul>
+            <hr />
+            <h3 style="color:black;font-family:'Yu Gothic',sans-serif">My Curricula</h3>
+            COURSE:<br />
+            <p style="font-family:'Yu Gothic',sans-serif;color:#302e2e;font-size:xx-large;">Brewing 101 <span style="background-color:#0094ff" class="badge">v 0.1</span></p>
+            <p>CURRENT LESSON:<br /><span style="color:#302e2e;font-size:x-large"><span id="LessonTitle">Lesson 1: Getting Started with Extract Brewing </span><a href="Library.html" style="background-color:#0094ff;color:white" id="btnResumeLesson" class="btn pull-right">Resume</a></span></p>
+
+            <hr />
+            <h3 style="color:black;font-family:'Yu Gothic',sans-serif">Feedback</h3>
+            <textarea id="txtFeedback" placeholder="Have any questions, comments, or suggestions? Tell us here." class="form-control" maxlength="200"></textarea>
+            <br />
+            <label id="txtNeedMore" style="color:#2a2727;font-family:'Yu Gothic',sans-serif"></label>
+
+            <a href="#" id="btnSubmitFeedback" style="color:white;background-color:#0094ff" class="btn pull-right">Submit</a>
+            <label id="lblFeedback" style="color:green">Thank you! </label>
+            <br />
+            <br />
+        </div>
+    </div>
+
+    
+
+
+
+    <footer id="footer" style="background-color:#fafafa">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="footer-copyright text-center">
+                        <div class="social-bookmark animated bounceInLeft">
+                            <a class="animated fadeInDown" href="#"><i class="fa fa-facebook-square"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <br />
+                            <p>Copyright &copy; 2015  <span>Brewrocket, LLC <br />All Rights Reserved.</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+    (function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript'; s.async = true;
+        s.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://brewrocket.groovehq.com/widgets/9f425df3-e933-4b9a-9f0a-c0774330fd3d/ticket.js'; var q = document.getElementsByTagName('script')[0]; q.parentNode.insertBefore(s, q);
+    })();
+    </script>
+
+    <!--scripts and plugins -->
+    <!--must need plugin jquery-->
+    <script src="js/jquery.min.js"></script>
+    <!--bootstrap js plugin-->
+    <script src="includes/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Google Maps API -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <!-- Custom Google Map -->
+
+    <script>
+        $(document).ready(function () {
+
+            $('.tooltip-test').tooltip();
+            $("#lblFeedback").hide();
+        
+
+            $.ajax({
+                type: "POST",
+                url: "WebServices/Engine.asmx/GetUsername",
+                data: "{}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var returnval = data.d;
+
+                    if (returnval == 1) {
+                        window.location.href = "Login.html";
+                    } else {
+                        $("#username").text(returnval);
+                    }
+                }
+            })
+
+
+            var LastLessonCompleted;
+
+            $.ajax({
+                type: "POST",
+                url: "WebServices/Engine.asmx/GetLastLessonCompleted",
+                data: "{}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var returnval = data.d;
+                    LastLessonCompleted = returnval;
+                    SetLessonTitle(LastLessonCompleted + 1)
+                }
+            })
+
+            var LessonOnDeck;
+            function SetLessonTitle(Lesson) {
+
+                switch (Lesson) {
+                    case 1:
+                        $("#LessonTitle").text("Lesson 1: Getting Started with Extract Brewing")
+                        LessonOnDeck = "L1"
+                        break;
+                    case 2:
+                        $("#LessonTitle").text("Lesson 2: The Importance of Sanitization");
+                        LessonOnDeck = "L2"
+                        break;
+                    case 3:
+                        $("#LessonTitle").text("Lesson 3: Brew Day Preperation");
+                        LessonOnDeck = "L3"
+                        break;
+                    case 4:
+                        $("#LessonTitle").text("Lesson 4: Water in Brewing");
+                        LessonOnDeck = "L4"
+                        break;
+                    case 5:
+                        $("#LessonTitle").text("Lesson 5: Brewing Breakdown");
+                        LessonOnDeck = "L5"
+                        break;
+                    case 6:
+                        $("#LessonTitle").text("Lesson 6: The Big Day");
+                        LessonOnDeck = "L6"
+                        break;
+                    case 7:
+                        $("#LessonTitle").text("Lesson 7: The Magic of Fermentation");
+                        LessonOnDeck = "L7"
+                        break;
+                    case 8:
+                        $("#LessonTitle").text("Lesson 8: Packaging & Conditioning");
+                        LessonOnDeck = "L8"
+                        break;
+                    default:
+                        $(".BRContent").hide();
+                        $("#DashboardPanel").show();
+                        $("#LessonTitle").text("Congrats! You've completed all of the lessons!");
+                        $("#btnResumeLesson").hide();
+                        $("#welcome").show();
+                        // code to be executed if n is different from case 1 and 2
+                }
+            }
+
+            $("#txtFeedback").keyup(function () {
+                if ($("#txtFeedback").val().length >= 200) {
+                    $("#txtNeedMore").text("Have more to say? Click the help link and send a message to our support team.");
+                } else {
+                    $("#txtNeedMore").text(" ");
+                }
+
+            })
+
+           
+
+            $("#lnkSignOut").click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: "WebServices/Engine.asmx/Logout",
+                    data: "{}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        var returnval = data.d;
+
+                        if (returnval == 1) {
+                            window.location.href = "Login.html";
+                        }
+                    }
+                })
+            })
+          
+            $("#btnSubmitFeedback").click(function () {
+
+                var Feedback = $("#txtFeedback").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "WebServices/Engine.asmx/GiveFeedback",
+                    data: "{Feedback:'" + Feedback + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        var returnval = data.d;
+
+                        $("#lblFeedback").show().fadeOut(5000);
+                        $("#txtFeedback").val('');
+
+                    }
+                })
+
+            })
+
+            })
+    </script>
+    <!--easying scroll effect-->
+    <script src="js/jquery.easing.1.3.min.js" type="text/javascript"></script>
+    <!--<script src="js/jquery.sticky.js" type="text/javascript"></script>
+    <script src="js/jquery.nav.js" type="text/javascript"></script>-->
+    <!--owl carousel-->
+    <script src="includes/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <!--wow animation-->
+    <script src="includes/wow-js/wow.min.js" type="text/javascript"></script>
+
+    <!--Activating WOW Animation only for modern browser-->
+    <!--[if !IE]><!-->
+    <script type="text/javascript">new WOW().init();</script>
+    <!--<![endif]-->
+    <!--Oh Yes, IE 9+ Supports animation, lets activate for IE 9+-->
+    <!--[if gte IE 9]>
+        <script type="text/javascript">new WOW().init();</script>
+    <![endif]-->
+    <!--Opacity & Other IE fix for older browser-->
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="js/ie-opacity-polyfill.js"></script>
+    <![endif]-->
+    <!--parallax-->
+    <script src="js/jquery.scrolly.js" type="text/javascript"></script>
+    <!--portfolio-filter-->
+    <script src="js/isotope.pkgd.min.js" type="text/javascript"></script>
+    <!--lightbox-->
+    <script src="includes/litebox/images-loaded.min.js" type="text/javascript"></script>
+    <script src="includes/litebox/litebox.min.js" type="text/javascript"></script>
+    <!--project count-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js" type="text/javascript"></script>
+    <!--custom scrollbar-->
+    <script src="js/jquery.nicescroll.min.js" type="text/javascript"></script>
+    <!--Contact Form-->
+    <script src="includes/contact-form/app.js" type="text/javascript"></script>
+    <script src="includes/contact-form/validatr.js" type="text/javascript"></script>
+
+    <!--customizable plugin edit according to your needs-->
+    <script src="js/custom.js" type="text/javascript"></script>
+
+</body>
+</html>
+
