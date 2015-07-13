@@ -261,8 +261,11 @@ Public Class Engine
         Dim CustyID As String = String.Empty
         Dim StripePlan As String = String.Empty
 
+        Dim LiveKey As String = "sk_live_T8KBWz5UpEczYzPubQ7DJeSv"
+        Dim TestKey As String = "sk_test_ES6jdki3z4hLiVZScgSQqYCl"
+
         Try
-            StripeConfiguration.SetApiKey("sk_test_ES6jdki3z4hLiVZScgSQqYCl") ''Make sure to switch to live key on launch
+            StripeConfiguration.SetApiKey(TestKey)
             Dim tokenservice As New StripeTokenService()
             Dim stripetoken As StripeToken = tokenservice.Get(ChargeToken)
 
@@ -276,7 +279,7 @@ Public Class Engine
             CustyID = StripeCustomer.Id
 
             Dim MyCharge As New StripeChargeCreateOptions()
-            MyCharge.Amount = 9900
+            MyCharge.Amount = 100
             MyCharge.Currency = "usd"
             MyCharge.Description = "Brewrocket Test Pilot Program"
             MyCharge.CustomerId = CustyID
