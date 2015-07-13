@@ -262,7 +262,7 @@ Public Class Engine
         Dim StripePlan As String = String.Empty
 
         Try
-            StripeConfiguration.SetApiKey("sk_test_ES6jdki3z4hLiVZScgSQqYCl")
+            StripeConfiguration.SetApiKey("sk_test_ES6jdki3z4hLiVZScgSQqYCl") ''Make sure to switch to live key on launch
             Dim tokenservice As New StripeTokenService()
             Dim stripetoken As StripeToken = tokenservice.Get(ChargeToken)
 
