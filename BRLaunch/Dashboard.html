@@ -83,12 +83,11 @@
         <div id="DashboardPanel" class="col-lg-6 col-lg-offset-3" style="border:2px solid #EEEEEE;border-radius:7px;margin-top:5%">
             <h1 style="color:#302e2e;font-family:'fira-sans-2';margin-bottom:20px;margin-top:10px;font-weight:700;font-stretch:wider">Welcome back, <span id="username"></span>! <br /></h1>
             <h3 style="color:black;font-family:'Yu Gothic',sans-serif">Release Notes & Updates</h3>
-            <b style="color:#0094ff">v 0.1  | June 30th 2015</b>
+            <b style="color:#0094ff">v 0.1.0  | July 18th 2015</b>
             <br />
-            <ul style="color:#2a2727">
-                <li>UI update for dashboard</li>
-                <li>Added content to Lesson 3</li>
-            </ul>
+            <label id="message" style="color:#2a2727">
+                
+            </label>
             <hr />
             <h3 style="color:black;font-family:'Yu Gothic',sans-serif">My Curricula</h3>
             COURSE:<br />
@@ -147,6 +146,15 @@
             $('.tooltip-test').tooltip();
             $("#lblFeedback").hide();
         
+
+            $.getJSON("https://api.github.com/users/WebD00D/repos", function (data) {
+                $.getJSON(data[0].commits_url.slice(0, -6), function (data) {
+                   
+                    $('#message').text(data[1].commit.message);
+                });
+            });
+
+
 
             $.ajax({
                 type: "POST",
