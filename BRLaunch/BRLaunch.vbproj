@@ -98,6 +98,7 @@
     <Content Include="css\flaticon.css" />
     <Content Include="css\fucking-ie-8-and-lower.css" />
     <Content Include="css\media.css" />
+    <Content Include="css\spinners.css" />
     <Content Include="css\style.css" />
     <Content Include="Dashboard.html" />
     <Content Include="Email_CredentialReset.html" />
