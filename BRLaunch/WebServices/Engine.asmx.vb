@@ -43,20 +43,6 @@ Public Class Engine
     End Function
 
 
-    <WebMethod()> _
-    Public Function GitHub()
-
-
-
-
-        Return ""
-
-    End Function
-
-
-
-
-
 #Region "User Settings"
 
     <WebMethod(True)> _
@@ -290,7 +276,7 @@ Public Class Engine
             CustyID = StripeCustomer.Id
 
             Dim MyCharge As New StripeChargeCreateOptions()
-            MyCharge.Amount = 5900 ' change this when we go live
+            MyCharge.Amount = 9900
             MyCharge.Currency = "usd"
             MyCharge.Description = "Brewrocket Test Pilot Program"
             MyCharge.CustomerId = CustyID
