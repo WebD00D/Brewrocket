@@ -126,3 +126,10 @@ background-image:none;
 	background-image:url(../img/demo-images/parallax-one.jpg);
 	}
 }
+
+@media screen and (max-width:1024px){
+    html,body{
+        z-index: 0!important;
+        overflow: scroll !important;
+    }
+}
