@@ -181,7 +181,7 @@ Public Class Engine
             Try
                 Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Support", System.Text.Encoding.UTF8)
                 Emailr.To.Add(Email)
-                Emailr.Bcc.Add("Christian@Brewrocket.io")
+
                 Emailr.Subject = "Your Brewrocket Account Credentials"
                 Emailr.Body = EmailBody
                 Emailr.IsBodyHtml = True
@@ -313,7 +313,7 @@ Public Class Engine
 
         Dim Emailr = New MailMessage()
         Try
-            Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Support", System.Text.Encoding.UTF8)
+            Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Team", System.Text.Encoding.UTF8)
             Emailr.To.Add("Christian@Brewrocket.io")
             Emailr.Bcc.Add("Sean@Brewrocket.io")
             Emailr.Subject = Subject
@@ -372,7 +372,7 @@ Public Class Engine
         EmailBody = reader.ReadToEnd
         Dim Emailr = New MailMessage()
         Try
-            Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Support", System.Text.Encoding.UTF8)
+            Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Team", System.Text.Encoding.UTF8)
             Emailr.To.Add(Email)
             Emailr.Bcc.Add("Christian@Brewrocket.io")
             Emailr.Subject = "Your account is now activated!"
