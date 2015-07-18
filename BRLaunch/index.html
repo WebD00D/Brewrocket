@@ -308,8 +308,11 @@
                                 <span class="input-group-btn">
                                     <a href="#" id="btnEarlyAccess" style="background-color:#0088b9;height:60px;font-size:x-large;padding-top:10px;font-family:'Yu Gothic',sans-serif" class="btn btn-info "><i class="fa fa-send"></i> Send</a>
                                 </span>
-
+                               
+                               
                             </div>
+                            <br />
+                            <label id="confirmmsg" style="color:green"></label>
                         </div>
                        
 
@@ -477,8 +480,8 @@
                     success: function (data) {
 
                         var returncode = data.d;
-                        $("#err3").text(returncode);
-                        $("#err3").css("color", "green");
+                        $("#confirmmsg").text("Thank you! We'll be in touch soon.");
+                        
                         $("#txtInviteEmail").val(" ");
                     }
                 })
