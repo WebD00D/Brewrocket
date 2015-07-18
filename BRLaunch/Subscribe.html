@@ -156,6 +156,9 @@
                                  
                                     <div class="col-lg-12">
                                         <label  style="color:black;font-size:larger;font-family:'Yu Gothic';margin-top:15px"><b>Where should we send your starter kit?</b></label>
+                                        <br />
+                                        <input id="ckNeedKit" type="checkbox"/><span style="color:black;font-size:larger"> I don't need a kit</span>
+                                        
                                     </div>
 
                                     <div class="col-lg-12">
@@ -234,7 +237,10 @@
                                     </div>
                                
                                     <div class="col-lg-12">
-                                        
+                                        <br />
+                                        <span id="ttlCharge" style="color:black;font-size:larger">Total Charge: $99.00</span>
+                                       
+                                       
                                         <hr />
                                         <p style="font-size:larger;color:#302e2e">By clicking 'Join Brewrocket', you are agreeing to our our <a href="#" data-toggle="modal" data-target="#TermsofService">terms of service and privacy policy.</a></p>
                                        
@@ -462,9 +468,28 @@
             })
 
             var token;
-          
+            var Fullcharge = true;
+
+            $("#ckNeedKit").change(function () {
+                //ttlCharge
+                if ($('#ckNeedKit').is(':checked')) {
+                    Fullcharge = false;
+                    $("#ttlCharge").text("Total Charge: $59.99");
+                    
+                } else {
+                    Fullcharge = true;
+                    $("#ttlCharge").text("Total Charge: $99.00");
+                }
+              
+                
+            })
+
 
             $("#btnJoin").click(function (e) {
+
+             
+             
+
                 $("#_progress").show();
                 $("#_progresstext").text("processing payment...");
                 $("#perror").text("");
@@ -518,31 +543,36 @@
                     $("#_progress").hide();
                     return;
                 }
-             
-                if ($("#txtStreet").val() == "") {
-                    $("#perror").text('Please enter your street address.');
-                    $("#txtStreet").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
+
+                if (Fullcharge = false) {
+
+                    if ($("#txtStreet").val() == "") {
+                        $("#perror").text('Please enter your street address.');
+                        $("#txtStreet").css("border-color", "red");
+                        $("#_progress").hide();
+                        return;
+                    }
+                    if ($("#txtCity").val() == "") {
+                        $("#perror").text('Please enter your city.');
+                        $("#txtCity").css("border-color", "red");
+                        $("#_progress").hide();
+                        return;
+                    }
+                    if ($("#txtState").val() == "") {
+                        $("#perror").text('Please enter your state.');
+                        $("#txtState").css("border-color", "red");
+                        $("#_progress").hide();
+                        return;
+                    }
+                    if ($("#txtZip").val() == "") {
+                        $("#perror").text('Please enter your zipcode.');
+                        $("#txtZip").css("border-color", "red");
+                        $("#_progress").hide();
+                        return;
+                    }
                 }
-                if ($("#txtCity").val() == "") {
-                    $("#perror").text('Please enter your city.');
-                    $("#txtCity").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
-                if ($("#txtState").val() == "") {
-                    $("#perror").text('Please enter your state.');
-                    $("#txtState").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
-                if ($("#txtZip").val() == "") {
-                    $("#perror").text('Please enter your zipcode.');
-                    $("#txtZip").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
+
+           
                 if ($("#txtCardNumber").val() == "") {
                     $("#perror").text('Please enter your credit card number.');
                     $("#txtCardNumber").css("border-color", "red");
@@ -603,9 +633,9 @@
 
 
             function StripeTime() {
-               
-                //pk_live_GnMkgUL9XzQmu1k0lOqGbI8P
-                Stripe.setPublishableKey("pk_test_oE1q37acy1ZkTum4IFXFjl3D");
+                //pk_test_oE1q37acy1ZkTum4IFXFjl3D
+                //
+                Stripe.setPublishableKey("pk_live_GnMkgUL9XzQmu1k0lOqGbI8P");
                 var expMM = $('#ExMonth option:selected').val()
                 var expYYYY = $('#ExpYear option:selected').val()
                 Stripe.card.createToken({
@@ -632,12 +662,19 @@
             }
 
             function docharge() {
+
+                var NeedsKit;
+                if ($('#ckNeedKit').is(':checked')) {
+                    NeedsKit = false;
+                } else {
+                    NeedsKit = true;
+                }
               
                 //Do Charge
                 $.ajax({
                     type: "POST",
                     url: "WebServices/Engine.asmx/Subscription_ProPlan",
-                    data: "{ChargeToken:'" + token + "',Email:'" + $("#txtUserEmail").val() + "',FirstName:'"+ $("#txtFirstName").val() +"',LastName:'"+ $("#txtLastName").val() +"',Address:'"+ $("#txtStreet").val() + ' ' + $("#txtCity").val() + ' ' +$("#txtState").val() + ' ' + $("#txtZip").val()  +"'}",
+                    data: "{ChargeToken:'" + token + "',Email:'" + $("#txtUserEmail").val() + "',FirstName:'"+ $("#txtFirstName").val() +"',LastName:'"+ $("#txtLastName").val() +"',Address:'"+ $("#txtStreet").val() + ' ' + $("#txtCity").val() + ' ' +$("#txtState").val() + ' ' + $("#txtZip").val()  +"',NeedsKit:'"+ NeedsKit +"'}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data) {

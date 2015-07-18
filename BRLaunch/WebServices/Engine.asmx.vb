@@ -256,7 +256,7 @@ Public Class Engine
     End Function
 
     <WebMethod()> _
-    Public Function Subscription_ProPlan(ByVal ChargeToken As String, ByVal Email As String, ByVal FirstName As String, ByVal LastName As String, ByVal Address As String)
+    Public Function Subscription_ProPlan(ByVal ChargeToken As String, ByVal Email As String, ByVal FirstName As String, ByVal LastName As String, ByVal Address As String, ByVal NeedsKit As Boolean)
 
         Dim CustyID As String = String.Empty
         Dim StripePlan As String = String.Empty
@@ -264,8 +264,10 @@ Public Class Engine
         Dim LiveKey As String = "sk_live_T8KBWz5UpEczYzPubQ7DJeSv"
         Dim TestKey As String = "sk_test_ES6jdki3z4hLiVZScgSQqYCl"
 
+        Dim PriceToCharge As Integer = Nothing
+
         Try
-            StripeConfiguration.SetApiKey(TestKey)
+            StripeConfiguration.SetApiKey(LiveKey)
             Dim tokenservice As New StripeTokenService()
             Dim stripetoken As StripeToken = tokenservice.Get(ChargeToken)
 
@@ -279,7 +281,13 @@ Public Class Engine
             CustyID = StripeCustomer.Id
 
             Dim MyCharge As New StripeChargeCreateOptions()
-            MyCharge.Amount = 100
+
+            If NeedsKit = True Then
+                MyCharge.Amount = 9900
+            Else
+                MyCharge.Amount = 5900
+            End If
+
             MyCharge.Currency = "usd"
             MyCharge.Description = "Brewrocket Test Pilot Program"
             MyCharge.CustomerId = CustyID
@@ -291,7 +299,14 @@ Public Class Engine
             ' If charge is successful then we need to send the email to ship out a brew kit asap. 
             ' This is a preventative measure for the possibility of the rest of the process not executing after the charge has been made. 
             ' We need to know to ship a kit
-            SendInternalEmail("New Signup", "Send " & FirstName & " " & LastName & " a kit to the following address: " & Address & " and set up slack account for this email:" & Email)
+
+
+            If NeedsKit = True Then
+                SendInternalEmail("New Signup", "Send " & FirstName & " " & LastName & " a kit to the following address: " & Address & " and set up slack account for this email:" & Email)
+            Else
+                SendInternalEmail("New Signup", "User: " & FirstName & " " & LastName & " selcted no kit to be sent")
+            End If
+
 
 
         Catch ex As Exception
