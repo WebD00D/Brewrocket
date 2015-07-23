@@ -81,11 +81,11 @@
                                 and above all are genuinely interested in learning how to brew their own beer.
                                 <br />
                                 <br />
-                                <b>What does it cost, and what do I get?</b>
+                                <b>What does it cost</b>
                                <br />
+                                Brewrocket education is completely free.
                                 Part of the Brewrocket mission is to create a low barrier to entry for those wanting to try their hand at homebrewing. 
-                                For just $99, all test pilot’s will receive a homebrew starter kit with first batch ingredients included,
-                                full access to all features of the site, as well as free lifetime access to all future Brewrocket courses.
+                                However if you don't have a homebrew shop near you to pick up a  kit or ingredients, you can purchase them from our shop page.
                                 <br />
                                 <br />
                                 <b> So what will I be test piloting?</b>
@@ -93,10 +93,7 @@
                                 All test pilots will be going through our introductory ‘Homebrewing 101’ course. 
                                 As this course continues to evolve through user feedback, we will be taking notes and finalizing a
                                 curricula path that our intermediate and advanced courses can follow suit. 
-                                <Br />
-                                <Br />Remember, as a test pilot you 
-                                will have free access to these courses, as well as some other special ‘early adopter perks’ once we move out of 
-                                beta into a full release.
+                                
                                 <br />
                                 <br />
 
@@ -154,14 +151,14 @@
                                         <input style="margin-top:10px" type="password" id="txtPassword" class="form-control" placeholder="Password" />
                                     </div>
                                  
-                                    <div class="col-lg-12">
+                                    <!--<div class="col-lg-12">
                                         <label  style="color:black;font-size:larger;font-family:'Yu Gothic';margin-top:15px"><b>Where should we send your starter kit?</b></label>
                                         <br />
                                         <input id="ckNeedKit" type="checkbox"/><span style="color:black;font-size:larger"> I don't need a kit</span>
                                         
-                                    </div>
+                                    </div>-->
 
-                                    <div class="col-lg-12">
+                                    <!--<div class="col-lg-12">
                                         <input style="margin-top:10px" type="text" id="txtStreet" class="form-control" placeholder="Street Address" />
                                     </div>
 
@@ -179,10 +176,10 @@
 
                                     <div class="col-lg-12">
                                         <label style="color:black;font-size:larger;font-family:'Yu Gothic',sans-serif;margin-top:15px"><b>Payment Details</b></label>
-                                    </div>
+                                    </div>-->
 
 
-                                    <div class="col-lg-12">
+                                    <!--<div class="col-lg-12">
                                         <input id="txtCardNumber" style="margin-top:10px" class="form-control" placeholder="Card number" />
                                     </div>
 
@@ -234,12 +231,11 @@
                                   
                                     <div class="col-lg-4">
                                         <input style="margin-top:10px" id="txtCVV" class="form-control" placeholder="CVV" />
-                                    </div>
+                                    </div>-->
                                
                                     <div class="col-lg-12">
                                         <br />
-                                        <span id="ttlCharge" style="color:black;font-size:larger">Total Charge: $99.00</span>
-                                       
+                                        
                                        
                                         <hr />
                                         <p style="font-size:larger;color:#302e2e">By clicking 'Join Brewrocket', you are agreeing to our our <a href="#" data-toggle="modal" data-target="#TermsofService">terms of service and privacy policy.</a></p>
@@ -467,22 +463,22 @@
 
             })
 
-            var token;
-            var Fullcharge = true;
+            //var token;
+            //var Fullcharge = true;
 
-            $("#ckNeedKit").change(function () {
-                //ttlCharge
-                if ($('#ckNeedKit').is(':checked')) {
-                    Fullcharge = false;
-                    $("#ttlCharge").text("Total Charge: $59.99");
+            //$("#ckNeedKit").change(function () {
+            //    //ttlCharge
+            //    if ($('#ckNeedKit').is(':checked')) {
+            //        Fullcharge = false;
+            //        $("#ttlCharge").text("Total Charge: $59.99");
                     
-                } else {
-                    Fullcharge = true;
-                    $("#ttlCharge").text("Total Charge: $99.00");
-                }
+            //    } else {
+            //        Fullcharge = true;
+            //        $("#ttlCharge").text("Total Charge: $99.00");
+            //    }
               
                 
-            })
+            //})
 
 
             $("#btnJoin").click(function (e) {
@@ -491,7 +487,7 @@
              
 
                 $("#_progress").show();
-                $("#_progresstext").text("processing payment...");
+                $("#_progresstext").text("validating...");
                 $("#perror").text("");
 
 
@@ -500,15 +496,8 @@
                 $("#txtPassword").css("border-color", "");
                 $("#txtFirstName").css("border-color", "");
                 $("#txtLastName").css("border-color", "");
-                $("#txtStreet").css("border-color", "");
-                $("#txtCity").css("border-color", "");
-                $("#txtState").css("border-color", "");
-                $("#txtZip").css("border-color", "");
+               
 
-                $("#ExMonth").css("border-color", "");
-                $("#ExpYear").css("border-color", "");
-                $("#txtCardNumber").css("border-color", "");
-                $("#txtCVV").css("border-color", "");
 
 
                 if ($("#txtFirstName").val() == "") {
@@ -544,59 +533,44 @@
                     return;
                 }
 
-                if (Fullcharge = false) {
+                //if (Fullcharge = false) {
 
-                    if ($("#txtStreet").val() == "") {
-                        $("#perror").text('Please enter your street address.');
-                        $("#txtStreet").css("border-color", "red");
-                        $("#_progress").hide();
-                        return;
-                    }
-                    if ($("#txtCity").val() == "") {
-                        $("#perror").text('Please enter your city.');
-                        $("#txtCity").css("border-color", "red");
-                        $("#_progress").hide();
-                        return;
-                    }
-                    if ($("#txtState").val() == "") {
-                        $("#perror").text('Please enter your state.');
-                        $("#txtState").css("border-color", "red");
-                        $("#_progress").hide();
-                        return;
-                    }
-                    if ($("#txtZip").val() == "") {
-                        $("#perror").text('Please enter your zipcode.');
-                        $("#txtZip").css("border-color", "red");
-                        $("#_progress").hide();
-                        return;
-                    }
-                }
+                //    if ($("#txtStreet").val() == "") {
+                //        $("#perror").text('Please enter your street address.');
+                //        $("#txtStreet").css("border-color", "red");
+                //        $("#_progress").hide();
+                //        return;
+                //    }
+                //    if ($("#txtCity").val() == "") {
+                //        $("#perror").text('Please enter your city.');
+                //        $("#txtCity").css("border-color", "red");
+
 
            
-                if ($("#txtCardNumber").val() == "") {
-                    $("#perror").text('Please enter your credit card number.');
-                    $("#txtCardNumber").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
-                if ($('#ExpYear option:selected').val() == 0) {
-                    $("#perror").text('Expiration year required.');
-                    $("#ExpYear").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
-                if ($('#ExMonth option:selected').val() == 0) {
-                    $("#perror").text('Expiration month required.');
-                    $("#ExMonth").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
-                if ($("#txtCVV").val() == "") {
-                    $("#perror").text('Please enter your CVV.');
-                    $("#txtCVV").css("border-color", "red");
-                    $("#_progress").hide();
-                    return;
-                }
+                //if ($("#txtCardNumber").val() == "") {
+                //    $("#perror").text('Please enter your credit card number.');
+                //    $("#txtCardNumber").css("border-color", "red");
+                //    $("#_progress").hide();
+                //    return;
+                //}
+                //if ($('#ExpYear option:selected').val() == 0) {
+                //    $("#perror").text('Expiration year required.');
+                //    $("#ExpYear").css("border-color", "red");
+                //    $("#_progress").hide();
+                //    return;
+                //}
+                //if ($('#ExMonth option:selected').val() == 0) {
+                //    $("#perror").text('Expiration month required.');
+                //    $("#ExMonth").css("border-color", "red");
+                //    $("#_progress").hide();
+                //    return;
+                //}
+                //if ($("#txtCVV").val() == "") {
+                //    $("#perror").text('Please enter your CVV.');
+                //    $("#txtCVV").css("border-color", "red");
+                //    $("#_progress").hide();
+                //    return;
+                //}
           
 
                 e.preventDefault();
@@ -611,7 +585,7 @@
                         var returncode = data.d;
                       
                         if (returncode == 3) {
-                            StripeTime();
+                            CreateNewUser("FREE");
                         }
                         if (returncode == 2) {
                             //username taken
@@ -632,75 +606,15 @@
             }) // end button click
 
 
-            function StripeTime() {
-                //pk_test_oE1q37acy1ZkTum4IFXFjl3D
-                //
-                Stripe.setPublishableKey("pk_live_GnMkgUL9XzQmu1k0lOqGbI8P");
-                var expMM = $('#ExMonth option:selected').val()
-                var expYYYY = $('#ExpYear option:selected').val()
-                Stripe.card.createToken({
-                    number: $("#txtCardNumber").val(),
-                    cvc:  $("#txtCVV").val(),
-                    exp_month: expMM,
-                    exp_year: expYYYY,
-
-                }, stripeResponseHandler);
-            } // end stripe time
-
-
-            function stripeResponseHandler(status, response) {
-
-                if (response.error) {
-                    $("#perror").text('Payment could not be processed. Please contact support.');
-                    $("#_progress").hide();
-                    return;
-                } else {
-                    token = response.id;
-                 
-                    docharge()
-                }
-            }
-
-            function docharge() {
-
-                var NeedsKit;
-                if ($('#ckNeedKit').is(':checked')) {
-                    NeedsKit = false;
-                } else {
-                    NeedsKit = true;
-                }
-              
-                //Do Charge
-                $.ajax({
-                    type: "POST",
-                    url: "WebServices/Engine.asmx/Subscription_ProPlan",
-                    data: "{ChargeToken:'" + token + "',Email:'" + $("#txtUserEmail").val() + "',FirstName:'"+ $("#txtFirstName").val() +"',LastName:'"+ $("#txtLastName").val() +"',Address:'"+ $("#txtStreet").val() + ' ' + $("#txtCity").val() + ' ' +$("#txtState").val() + ' ' + $("#txtZip").val()  +"',NeedsKit:'"+ NeedsKit +"'}",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (data) {
-
-                        var returncode = data.d;
-                        if (returncode == 1) {
-                            
-                        } else {
-                            StripeCustomerNumber = returncode;
-                            CreateNewUser(StripeCustomerNumber);
-                        }
-
-                    }
-                })
-            }
-
-
             function CreateNewUser(StripeCusty) {
-                
-         
+
+
                 $("#_progresstext").text("creating user profile...");
 
                 $.ajax({
                     type: "POST",
                     url: "WebServices/Engine.asmx/CreateNewUser",
-                    data: "{Email:'" + $("#txtUserEmail").val() + "',Username:'" + $("#txtUsername").val() + "',Password:'" + $("#txtPassword").val() + "',Stripe:'" + StripeCusty + "',FirstName:'" + $("#txtFirstName").val() + "',LastName:'"+ $("#txtLastName").val() +"'}",
+                    data: "{Email:'" + $("#txtUserEmail").val() + "',Username:'" + $("#txtUsername").val() + "',Password:'" + $("#txtPassword").val() + "',Stripe:'" + StripeCusty + "',FirstName:'" + $("#txtFirstName").val() + "',LastName:'" + $("#txtLastName").val() + "'}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data) {
@@ -711,6 +625,68 @@
                 })
 
             }
+
+            //function StripeTime() {
+            //    //pk_test_oE1q37acy1ZkTum4IFXFjl3D
+            //    //
+            //    Stripe.setPublishableKey("pk_live_GnMkgUL9XzQmu1k0lOqGbI8P");
+            //    var expMM = $('#ExMonth option:selected').val()
+            //    var expYYYY = $('#ExpYear option:selected').val()
+            //    Stripe.card.createToken({
+            //        number: $("#txtCardNumber").val(),
+            //        cvc:  $("#txtCVV").val(),
+            //        exp_month: expMM,
+            //        exp_year: expYYYY,
+
+            //    }, stripeResponseHandler);
+            //} // end stripe time
+
+
+            //function stripeResponseHandler(status, response) {
+
+            //    if (response.error) {
+            //        $("#perror").text('Payment could not be processed. Please contact support.');
+            //        $("#_progress").hide();
+            //        return;
+            //    } else {
+            //        token = response.id;
+                 
+            //        docharge()
+            //    }
+            //}
+
+            //function docharge() {
+
+            //    var NeedsKit;
+            //    if ($('#ckNeedKit').is(':checked')) {
+            //        NeedsKit = false;
+            //    } else {
+            //        NeedsKit = true;
+            //    }
+              
+            //    //Do Charge
+            //    $.ajax({
+            //        type: "POST",
+            //        url: "WebServices/Engine.asmx/Subscription_ProPlan",
+            //        data: "{ChargeToken:'" + token + "',Email:'" + $("#txtUserEmail").val() + "',FirstName:'"+ $("#txtFirstName").val() +"',LastName:'"+ $("#txtLastName").val() +"',Address:'"+ $("#txtStreet").val() + ' ' + $("#txtCity").val() + ' ' +$("#txtState").val() + ' ' + $("#txtZip").val()  +"',NeedsKit:'"+ NeedsKit +"'}",
+            //        contentType: "application/json; charset=utf-8",
+            //        dataType: "json",
+            //        success: function (data) {
+
+            //            var returncode = data.d;
+            //            if (returncode == 1) {
+                            
+            //            } else {
+            //                StripeCustomerNumber = returncode;
+                          
+            //            }
+
+            //        }
+            //    })
+            //}
+
+
+            
 
             })
     </script>

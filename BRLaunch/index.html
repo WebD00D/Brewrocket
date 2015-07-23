@@ -120,7 +120,7 @@
                     <ul class=" nav navbar-nav navbar-right">
 
 
-                        <li><a data-toggle="modal" data-target="#EnterAccessCode" href="#" style="font-size:small;text-transform:none"><img src="img/FeatureIcons/Rocket.png" /> Have an access code?</a></li>
+                        <li><a  href="http://www.brewrocket.io/Subscribe.html" style="font-size:small;text-transform:none"><img src="img/FeatureIcons/Rocket.png" /> Sign Up</a></li>
 
                         <li><a href="http://www.brewrocket.io/login.html" style="font-size:small;text-transform:none"><img src="img/Unlock.png" /> Login</a></li>
                         <li>
@@ -299,20 +299,14 @@
                         <br />
                         <br />
                         <span style="color:#969494">
-                            We send invites every so often.
-                            <br />Enter your email below to get put on our list.
-                        </span>
-                        <div class="col-lg-6 col-lg-offset-3">
-                            <div class="input-group">
-                                <input id="txtInviteEmail" style="color:#0088b9;height:60px;font-size:x-large;text-align:center;color:#0088b9;" class="form-control" placeholder="Enter your email..." />
-                                <span class="input-group-btn">
-                                    <a href="#" id="btnEarlyAccess" style="background-color:#0088b9;height:60px;font-size:x-large;padding-top:10px;font-family:'Yu Gothic',sans-serif" class="btn btn-info "><i class="fa fa-send"></i> Send</a>
-                                </span>
-                               
-                               
-                            </div>
+                            It's free to sign up too :)
                             <br />
-                            <label id="confirmmsg" style="color:green"></label>
+                        </span>
+                        <div class="col-lg-6 col-lg-offset-3 text-center" >
+                            <br />
+                            <a href="Subscribe.html" id="btnEarlyAccess" style="background-color:#0088b9;height:60px;font-size:x-large;padding-top:10px;font-family:'Yu Gothic',sans-serif" class="btn btn-lg btn-info "> Sign Up</a>
+                            <br />
+                           
                         </div>
                        
 
@@ -455,37 +449,7 @@
 
 
 
-            $("#btnEarlyAccess").click(function (e) {
-                e.preventDefault();
-                $("#txtInviteEmail").css("border-color", "");
-
-                var email = $("#txtInviteEmail").val();
-
-                if (email == "") {
-                    $("#err3").text("An email is required.");
-                    $("#err3").css("color", "red");
-                    $("#txtInviteEmail").css("border-color", "red");
-                    return
-                }
-
-                $("#err3").text("Sending");
-                $("#err3").css("color", "black");
-
-                $.ajax({
-                    type: "POST",
-                    url: "WebServices/Engine.asmx/GetOnInviteList",
-                    data: "{Email:'" + email + "'}",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (data) {
-
-                        var returncode = data.d;
-                        $("#confirmmsg").text("Thank you! We'll be in touch soon.");
-                        
-                        $("#txtInviteEmail").val(" ");
-                    }
-                })
-            })
+       
 
 
 
