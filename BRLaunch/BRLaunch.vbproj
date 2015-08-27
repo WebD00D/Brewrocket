@@ -107,6 +107,7 @@
     <Content Include="favicon.ico" />
     <Content Include="flaticon.svg" />
     <Content Include="FutureLandingPage.html" />
+    <Content Include="GenericEmailTemplate.html" />
     <Content Include="img\AccountWallpaper.png" />
     <Content Include="img\Back1.png" />
     <Content Include="img\Beaker 1.png" />

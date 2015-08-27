@@ -92,17 +92,28 @@
             NEXT SESSION:<br />
 
             <p>
-                <span style="color:#302e2e;font-size:x-large"><span id="OfficeHourTime"> TBD</span></span>
+                <span style="color:#302e2e;font-size:x-large"><span id="OfficeHourTime">
+                    <b>YEAST 101</b><br />
+                September 10th, 2015
+                  <br />
+                  <small>  6PM - 7PM EDT</small>
+                  
+                    
+                 </span></span>
                 <br />
                 <span style="color:#302e2e">
-                 We're busy getting our office hour times set up and scheduled. We'll let you know when we're ready!
+                Join us for our live webcast with Kenny Allen, head brewmaster of Old Ox Brewery as we discuss all there is to know
+                    about creating, and managing yeast starters! To get in on the live chat, click the RSVP button, and we'll add your email on file to
+                    the list.
+                     This is a first come, first serve basis and we only have 7 spots! Don't worry if you can't sit it on the chat though, you'll still
+                    be able to view the live broadcast and post questions for Kenny, or view the recording posted here after.
                 </span>
             </p>
 
 
 
-            <a href="#" id="btnGetInvite" style="color:white;background-color:#0094ff" class="btn pull-right hidden">Send me an invite!</a>
-            <label id="lblFeedback" style="color:green">Thanks! Check your email - We just sent you a Google Hangout link to use to join the session. </label>
+            <a href="#" id="btnGetInvite" style="color:white;background-color:#0094ff" class="btn pull-right">RSVP</a>
+            <label id="lblFeedback" style="color:green">Got it! Closer to the event date, we will send you the links needed. Cheers! </label>
             <br />
             <br />
         </div>
@@ -149,13 +160,13 @@
 
             $("#btnGetInvite").click(function () {
 
-                var MeetingTime = $("#OfficeHourTime").text();
+                //var MeetingTime = $("#OfficeHourTime").text();
 
 
                 $.ajax({
                     type: "POST",
                     url: "WebServices/Engine.asmx/OfficeHoursInvite",
-                    data: "{MeetingTime:'" + MeetingTime + "'}",
+                    data: "{}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data) {

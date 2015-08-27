@@ -403,6 +403,40 @@ Public Class Engine
         Return ""
     End Function
 
+    <WebMethod()> _
+    Public Function SendGenericEmail(ByVal Email As String)
+
+
+
+        Dim smtpserver As New SmtpClient()
+        smtpserver.Credentials = New Net.NetworkCredential("christian@brewrocket.io", "WebD00D91") 'HASH FOR LATER
+        smtpserver.Port = 587
+        smtpserver.Host = "mail.oak.arvixe.com"
+        smtpserver.EnableSsl = False
+
+        Dim EmailBody As String = String.Empty
+        Dim reader As StreamReader = New StreamReader(HttpContext.Current.Server.MapPath("~/GenericEmailTemplate.html"))
+
+        'TO DO: Create HTML email for ForgotPassword.html 
+        EmailBody = reader.ReadToEnd
+        Dim Emailr = New MailMessage()
+        Try
+            Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Team", System.Text.Encoding.UTF8)
+            Emailr.To.Add(Email)
+            Emailr.Bcc.Add("Christian@Brewrocket.io")
+            Emailr.Subject = "Hello from Brewrocket!"
+            Emailr.Body = EmailBody
+            Emailr.IsBodyHtml = True
+            smtpserver.Send(Emailr)
+
+        Catch ex As Exception
+
+        End Try
+
+        Return ""
+    End Function
+
+
 
 
 #End Region
@@ -412,7 +446,7 @@ Public Class Engine
 
 
     <WebMethod(True)> _
-    Public Function OfficeHoursInvite(ByVal MeetingTime As String)
+    Public Function OfficeHoursInvite()
 
         Dim UserID As Integer = Session("MemberID")
         Dim dt As New DataTable
@@ -421,7 +455,7 @@ Public Class Engine
             Using cmd As SqlCommand = con.CreateCommand
                 cmd.Connection = con
                 cmd.Connection.Open()
-                cmd.CommandText = "SELECT * FROM BR_AllUsers"
+                cmd.CommandText = "SELECT * FROM BR_AllUsers WHERE UserID = " & UserID
                 cmd.CommandType = CommandType.Text
                 Using da As New SqlDataAdapter
                     da.SelectCommand = cmd
@@ -434,8 +468,8 @@ Public Class Engine
 
         Dim Name As String = dt.Rows(0).Item("FirstName")
         Dim Email As String = dt.Rows(0).Item("Email")
-        Dim HangoutSessionInfo As String = MeetingTime
-        Dim HangoutLink As String = "http://www.google.com"
+        'Dim HangoutSessionInfo As String = MeetingTime
+        'Dim HangoutLink As String = "http://www.google.com"
 
 
         Dim smtpserver As New SmtpClient()
@@ -446,19 +480,19 @@ Public Class Engine
 
         Dim EmailBody As String = String.Empty
         Dim reader As StreamReader = New StreamReader(HttpContext.Current.Server.MapPath("~/Email_OfficeHoursConfirmation.html"))
-      
+
         EmailBody = reader.ReadToEnd
-        EmailBody = EmailBody.Replace("{FirstName}", Name)
-        EmailBody = EmailBody.Replace("{Meeting}", HangoutSessionInfo)
-        EmailBody = EmailBody.Replace("{Link}", HangoutLink)
+        EmailBody = EmailBody.Replace("{FirstName}", Name & " | " & Email)
+        EmailBody = EmailBody.Replace("{Meeting}", "September 10th Meeting with Kenny")
+        EmailBody = EmailBody.Replace("{Link}", "")
         Dim Emailr = New MailMessage()
         Try
             Emailr.From = New MailAddress("Christian@Brewrocket.io", "Brewrocket Team", System.Text.Encoding.UTF8)
-            Emailr.To.Add(Email)
-            Emailr.Bcc.Add("Christian@Brewrocket.io")
-            Emailr.Subject = "Brewrocket Office Hours Invite for " & HangoutSessionInfo
+            Emailr.To.Add("Christian@Brewrocket.io")
+            ' Emailr.Bcc.Add("Christian@Brewrocket.io")
+            Emailr.Subject = "Brewrocket Office Hours Invite Request"
             Emailr.Body = EmailBody
-   
+
             Emailr.IsBodyHtml = True
             smtpserver.Send(Emailr)
 

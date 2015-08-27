@@ -97,10 +97,6 @@
 </head>
 <body  id="body">
 
-
-
-
-
     <nav id="navigation">
 
         <div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -120,7 +116,7 @@
                     <ul class=" nav navbar-nav navbar-right">
 
 
-                        <li><a  href="http://www.brewrocket.io/Subscribe.html" style="font-size:small;text-transform:none"><img src="img/FeatureIcons/Rocket.png" /> Sign Up</a></li>
+                        <li><a  href="http://www.brewrocket.io/Subscribe.html" style="font-size:small;text-transform:none"><img src="img/FeatureIcons/Rocket.png" /> Sign Up for FREE</a></li>
 
                         <li><a href="http://www.brewrocket.io/login.html" style="font-size:small;text-transform:none"><img src="img/Unlock.png" /> Login</a></li>
                         <li>
@@ -135,6 +131,9 @@
             </div><!--/.container -->
         </div><!--navbar-default-->
     </nav><!--navigation section end here-->
+
+
+
     <!-- Modal -->
     <div class="modal fade" id="EnterAccessCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="margin-top:15%">
@@ -149,7 +148,7 @@
                 <div class="modal-footer">
 
                     <label id="lblErrr" class="text-center" style="font-family:'Yu Gothic';font-size:large;color:#c82424">Sorry, that access code is invalid!</label>
-                    <button id="btnGetAccess" type="button" class="btn btn-lg btn-primary">GO!</button>
+                    
                 </div>
             </div>
         </div>
@@ -158,16 +157,19 @@
 
 
 
-    <section id="about" style="background-color:white;">
+    <section id="about">
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" style="margin-bottom:35px">
                     <h1 id="title1" class="text-center hidden-xs" style="color:#3d3b3b;margin-top:5%;margin-bottom:30px;font-family:'museo-sans',sans-serif;font-weight:500;font-style:normal">
                         New to homebrewing? Start here.
+                     
+                      
                     </h1>
                     <h2 id="title2" class="text-center hidden-lg hidden-md hidden-sm" style="color:#3d3b3b;margin-top:5%;margin-bottom:30px;font-family:'museo-sans',sans-serif;font-weight:500;font-style:normal">
                         New to homebrewing? <br />Start here.
+                    
                     </h2>
                     <div class="col-lg-6 col-lg-offset-3 ">
                         <img src="img/LandingPageImg/BR_LandingMain.png" class="img-responsive center-block hidden-lg hidden-md hidden-sm" />
@@ -244,7 +246,7 @@
                 <div class="col-lg-7">
                     <p class="text-left" style="font-size:xx-large;color:#3d3b3b;margin-top:7%;font-family:'Yu Gothic',sans-serif;line-height:40px"><b>Learn and experiment</b></p>
                     <p style="font-size:x-large;color:#3d3b3b;line-height:37px">
-                        We'll send you a homebrew starter kit, as well as the ingredients needed to get brewing right away!
+                       
 
                         You'll learn the fundamental skills needed
                         to understand and brew a recipe, as well as gain the confidence to be able to
@@ -309,7 +311,7 @@
                            
                         </div>
                        
-
+                        
 
                     </p>
                 </div>
@@ -422,29 +424,7 @@
 
             $("#lblErrr").hide();
 
-            $("#btnGetAccess").click(function () {
-                //Check if code is valid
-
-                $.ajax({
-                    type: "POST",
-                    url: "WebServices/Engine.asmx/CheckAccessCode",
-                    data: "{AccessCode:'" + $("#txtCode").val() + "'}",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (data) {
-
-                        var returncode = data.d;
-
-                        if (returncode == false) {
-                            $("#lblErrr").show();
-                            return;
-                        } else {
-                            window.location.href = "https://www.Brewrocket.io/Subscribe.html";
-                        }
-
-                    }
-                })
-            })
+          
 
 
 
